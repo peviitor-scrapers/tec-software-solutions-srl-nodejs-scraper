@@ -7,18 +7,18 @@
 | CIF | 32971419 |
 | Brand | TEC Agency |
 | Status | activ |
-| Location | HĂŞDAŢII, 12, Municipiul Gherla, Cluj |
+| Location | Cluj-Napoca |
 | Website | [https://wearetec.com](https://wearetec.com) |
 | Careers | [https://wearetec.com/careers/](https://wearetec.com/careers/) |
-| Last Scraped | 2026-07-26 |
+| Last Scraped | 2026-08-15 |
 
 ## Current Job Listings (1)
 
-_Generated: 2026-07-26T08:34:05.651Z_
+_Generated: 2026-08-15T01:49:13.340Z_
 
 ### Full Stack Developer
 
 - **URL:** [https://tecss.bamboohr.com/careers/72](https://tecss.bamboohr.com/careers/72)
-- **Work Mode:** on-site
-- **Location:** Cluj-Napoca, Romania
+- **Work Mode:** hybrid
+- **Location:** Cluj-Napoca, România
 - **Status:** scraped

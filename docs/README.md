@@ -1,8 +1,8 @@
 # job_seeker_ro_spider
 
-**job_seeker_ro_spider** — scraper pentru job-urile TEC Agency din România.
+**job_seeker_ro_spider** — scraper pentru job-urile TEC SOFTWARE SOLUTIONS SRL din România.
 
-Extrage anunțurile de pe [TEC Agency Careers](https://wearetec.com/careers/) și le publică în [peviitor.ro](https://peviitor.ro) prin API-ul SOLR.
+Extrage anunțurile de pe [TEC Agency Careers](https://tecss.bamboohr.com/careers/) și le publică în [peviitor.ro](https://peviitor.ro) prin API-ul Peviitor.
 
 ## Identificare
 
@@ -14,69 +14,62 @@ job_seeker_ro_spider
 
 ## Ce face
 
-1. **Validează compania** — interoghează API-ul public ANAF ([demoanaf.ro](https://demoanaf.ro)) după CIF-ul TEC (32971419) și verifică:
+1. **Validează compania** — interoghează API-ul public ANAF ([demoanaf.ro](https://demoanaf.ro)) după CIF-ul 32971419 și verifică:
    - Denumirea oficială: TEC SOFTWARE SOLUTIONS SRL
    - Status: activ/inactiv/radiat
    - Adresa completă din registrul comerțului
 2. **Cross-validează cu Peviitor** — verifică existența companiei în API-ul Peviitor
-3. **Scrape-uiește job-urile** — extrage lista completă de job-uri din API-ul BambooHR
+3. **Scrape-uiește job-urile** — extrage lista completă de job-uri din API-ul public BambooHR JSON (`/list`)
 4. **Transformă datele** — normalizează locațiile (doar orașe românești), tag-urile (lowercase), workmode-ul (remote/on-site/hybrid)
-5. **Stochează în SOLR** — upsert în `job` core (job-urile) și `company` core (datele companiei cu adresa completă)
-6. **Generează docs/jobs.md** — fișier markdown cu informații companie + toate job-urile curente, publicat pe [GitHub Pages](https://sebiboga.github.io/tec-software-solutions-srl-nodejs-scraper/jobs.md)
+5. **Stochează prin Peviitor API** — upsert pentru job-uri și datele companiei
+6. **Generează docs/jobs.md** — fișier markdown cu informații companie + toate job-urile curente, publicat pe GitHub Pages
 
 ## Structură proiect
 
 ```
-├── config/company.json         # Sursa unică de adevăr (CIF, brand, URL-uri, API)
-├── config/company.js           # Loader ESM pentru config/company.json
-├── index.js                    # Orchestrator principal
-├── company.js                  # Validare companie (ANAF + Peviitor + SOLR) cu cache 7 zile
-├── demoanaf.js                 # CLI wrapper pentru src/anaf.js
-├── src/anaf.js                 # Modul ANAF API (search + company details)
-├── src/markdown-generator.js   # Generează docs/jobs.md după scrape
-├── src/job-validator.js        # Primitivă comună: validateByHead, validateByContent
-├── solr.js                     # Operații SOLR (query, upsert, delete, company)
-├── company.json                # Cache ANAF (committed, TTL 7 zile, fallback la stale)
-├── ROBOTS.md          # Analiză robots.txt și politici de scraping
+├── scraper/
+│   ├── config/company.json         # Sursa unică de adevăr (id, brand, URL-uri)
+│   ├── config/company.js           # Loader ESM pentru config/company.json
+│   ├── config/scraper.json         # Config scraper (apiBase, apiListPath)
+│   ├── index.js                    # Orchestrator principal (BambooHR JSON scraping)
+│   ├── company.js                  # Validare companie (ANAF + Peviitor)
+│   ├── anaf.js                     # Modul ANAF API
+│   ├── api.js                      # Operații Peviitor API (query, upsert, delete)
+│   ├── markdown-generator.js       # Generează docs/jobs.md
+│   ├── job-validator.js            # Validare job URL (HEAD/content/browser)
+│   ├── validate-jobs.js            # Validator deep (CLI)
+│   └── demoanaf.js                 # CLI ANAF
+├── tmp/company.json                # Cache ANAF (gitignored, TTL 7 zile)
+├── company.json                    # Cache ANAF committed (TTL 7 zile)
+├── ai/                             # Documentație proiect (INSTRUCTIONS, models, etc.)
+├── docs/
+│   ├── jobs.md                     # Job-uri generate după fiecare scrape
+│   └── test-results/               # Rapoarte teste HTML
 ├── tests/
-│   ├── unit/          # 56 teste unitare (API-uri mock-uite)
-│   ├── integration/   # 16 teste de integrare (ANAF + SOLR live)
-│   └── e2e/           # 13 teste end-to-end (pipelin complet)
+│   ├── unit/                       # Teste unitare
+│   ├── integration/                # Teste de integrare (ANAF + Peviitor live)
+│   ├── e2e/                        # Teste end-to-end (BambooHR JSON real)
+│   └── consistency/                # Teste config repo
 └── .github/workflows/
-    ├── job-seeker-ro-spider.yml     # Rulează zilnic la 6 AM UTC
-    └── automation-testing.yml       # Teste automate la fiecare push/PR
+    ├── job-seeker-ro-spider.yml    # Rulează zilnic la 6 AM UTC
+    ├── automation-testing.yml      # Teste automate la fiecare push/PR
+    └── job-recovery-from-disaster.yml  # Restaurare company core
 ```
 
 ## API-uri folosite
 
 | API | URL | Autentificare |
 |---|---|---|
-| BambooHR Careers | `https://tecss.bamboohr.com/careers/list` | Public |
+ BambooHR Jobs | `https://tecss.bamboohr.com/careers/list` | Public (JSON) 
 | ANAF (demoanaf) | `https://demoanaf.ro/api/...` | Public |
-| Peviitor | `https://api.peviitor.ro/v1/company/` | Public |
-| SOLR (job core) | `https://solr.peviitor.ro/solr/job` | `SOLR_AUTH` |
-| SOLR (company core) | `https://solr.peviitor.ro/solr/company` | `SOLR_AUTH` |
+| ANOFM | `https://mediere.anofm.ro/api/entity/vw_public_job_posting` | Public |
+| Peviitor | `https://api.peviitor.ro/v1` | Public (fără auth) |
 
 ## Robots.txt
 
-Website-ul TEC Agency [robots.txt](https://wearetec.com/robots.txt) permite accesul la majoritatea resurselor. API-ul BambooHR este un subdomeniu extern și nu intră sub incidența robots.txt.
+BambooHR [robots.txt](https://tecss.bamboohr.com/robots.txt) permite `/careers/list` (doar `/jobs/embed.php`, `/jobs/embed2.php` sunt disallowed). Scraper-ul face o singură cerere la list per scrape.
 
-Pentru analiza completă, vezi [ROBOTS.md](../ROBOTS.md).
-
-## 🌱 Derived Scrapers
-
-Acest template a fost folosit pentru a deriva scraper-e pentru alte companii:
-
-| Repo | Companie | CIF | Metodă | Status |
-|------|----------|-----|--------|--------|
-| [mejix-srl-nodejs-scraper](https://github.com/sebiboga/mejix-srl-nodejs-scraper) | MEJIX SRL | 17372688 | HTML scraping (cheerio) | ✅ Live |
-| [talent-matchmakers-srl-nodejs-scraper](https://github.com/sebiboga/talent-matchmakers-srl-nodejs-scraper) | TALENT MATCHMAKERS S.R.L. | 38460545 | Teamtailor HTML (cheerio) | ✅ Live |
-| [artsoft-consult-srl-nodejs-scraper](https://github.com/sebiboga/artsoft-consult-srl-nodejs-scraper) | ARTSOFT CONSULT SRL | 15997630 | HTML scraping (cheerio) | ✅ Live |
-| [rapel-srl-nodejs-scraper](https://github.com/sebiboga/rapel-srl-nodejs-scraper) | RAPEL SRL | 5665609 | jobRapid.ro HTML + ANOFM API | ✅ Live |
-| [continental-hotels-srl-nodejs-scraper](https://github.com/sebiboga/continental-hotels-srl-nodejs-scraper) | CONTINENTAL HOTELS SA | 1559737 | POST AJAX → HTML (cheerio) | ✅ Live |
-| [coera-bc-srl-nodejs-scraper](https://github.com/sebiboga/coera-bc-srl-nodejs-scraper) | COERA BC SRL | 32519996 | HTML scraping (cheerio) | ✅ Live |
-
-**Pitfall #12 — ANOFM job scraping by CIF:** API-ul public ANOFM (`/api/entity/vw_public_job_posting`) oferă job-uri gratis filtrate pe CIF. Adăugați `searchANOFM(cif)` în scraper pentru a nu pierde job-uri de pe această platformă. Location se returnează ca array (`[loc]`).
+Pentru analiza completă, vezi [ROBOTS.md](../ai/ROBOTS.md).
 
 ## Testare
 
@@ -87,11 +80,11 @@ npm test
 # Doar unitare
 npm run test:unit
 
-# Doar integrare (necesită ANAF live, SOLR conditional)
+# Doar integrare (ANAF live, Peviitor conditional)
 npm run test:integration
 
-# Doar E2E (API real BambooHR + ANAF + SOLR)
+# Doar E2E (BambooHR JSON real + ANAF + Peviitor)
 npm run test:e2e
 ```
 
-Testele SOLR folosesc `itIfSolr` — se auto-skip dacă variabila `SOLR_AUTH` nu e setată.
+Testele se auto-skip dacă API-urile externe nu sunt disponibile. Nu e nevoie de `SOLR_AUTH` — toate operațiile merg prin Peviitor API.

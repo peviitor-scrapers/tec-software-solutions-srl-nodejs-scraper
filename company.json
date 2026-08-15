@@ -1,4 +1,0 @@
-{
-  "summary": { "cif": "32971419", "company": "TEC SOFTWARE SOLUTIONS SRL", "brand": "TEC Agency", "status": "activ", "location": ["Cluj-Napoca"], "website": ["https://wearetec.com"], "career": ["https://wearetec.com/careers/"], "lastScraped": "2026-06-20", "scraperFile": "https://raw.githubusercontent.com/sebiboga/tec-software-solutions-srl-nodejs-scraper/main/.github/workflows/job-seeker-ro-spider.yml" },
-  "anaf": { "cui": 32971419, "name": "TEC SOFTWARE SOLUTIONS SRL", "inactive": false, "address": "Hăşdaţii 12, Gherla, Cluj", "scannedDate": "2026-06-20" }
-}
