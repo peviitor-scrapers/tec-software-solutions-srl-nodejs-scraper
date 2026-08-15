@@ -1,0 +1,88 @@
+{
+  "validatedAt": "2026-08-15T01:57:29.565Z",
+  "source": "ANAF",
+  "brand": "TEC Agency",
+  "anaf": {
+    "cui": 32971419,
+    "name": "TEC SOFTWARE SOLUTIONS SRL",
+    "address": "JUD. CLUJ, MUN. GHERLA, STR. HĂŞDAŢII, NR.12",
+    "registrationNumber": "J12/1130/2014",
+    "phone": "0771352210",
+    "fax": "",
+    "postalCode": "405300",
+    "caenCode": "6210",
+    "iban": "",
+    "registrationState": "INREGISTRAT din data 25.03.2014",
+    "registrationDate": "2014-03-25",
+    "fiscalAuthority": "Administraţia Fiscală pentru Contribuabili Mijlocii - Cluj",
+    "ownershipForm": "PROPR.PRIVATA-CAPITAL PRIVAT AUTOHTON",
+    "organizationForm": "PERSOANA JURIDICA",
+    "legalForm": "SOCIETATE COMERCIALĂ CU RĂSPUNDERE LIMITATĂ",
+    "vatRegistered": true,
+    "vatPeriods": [
+      {
+        "start": "2014-04-23",
+        "end": null,
+        "yearStart": "",
+        "message": ""
+      }
+    ],
+    "cashBasisVat": false,
+    "cashBasisVatStart": null,
+    "cashBasisVatEnd": null,
+    "inactive": false,
+    "inactiveSince": null,
+    "reactivatedSince": null,
+    "splitVat": false,
+    "eFacturaRegistered": false,
+    "headquartersAddress": {
+      "street": "Str. Hăşdaţii",
+      "number": "12",
+      "locality": "Mun. Gherla",
+      "county": "CLUJ",
+      "country": "",
+      "postalCode": "405300"
+    },
+    "fiscalAddress": {
+      "street": "",
+      "number": "",
+      "locality": "",
+      "county": "",
+      "country": "",
+      "postalCode": ""
+    },
+    "administrators": [
+      {
+        "name": "RUS EMIL TRAIAN",
+        "role": "administrator"
+      }
+    ],
+    "authorizedCaenCodes": [
+      "4618",
+      "4619",
+      "4740",
+      "4791",
+      "6031",
+      "6210",
+      "6220",
+      "6290",
+      "6310",
+      "6391",
+      "6392",
+      "7311",
+      "7312",
+      "7412",
+      "7414"
+    ],
+    "onrcStatus": 0,
+    "onrcStatusLabel": "Funcțiune"
+  },
+  "peviitor": null,
+  "summary": {
+    "company": "TEC SOFTWARE SOLUTIONS SRL",
+    "cif": "32971419",
+    "active": true,
+    "inactiveSince": null,
+    "address": "JUD. CLUJ, MUN. GHERLA, STR. HĂŞDAŢII, NR.12"
+  }
+}
