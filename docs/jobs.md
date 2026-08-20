@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. GHERLA, STR. HĂŞDAŢII, NR.12 |
 | Website | [https://wearetec.com](https://wearetec.com) |
 | Careers | [https://wearetec.com/careers/](https://wearetec.com/careers/) |
-| Last Scraped | 2026-08-19 |
+| Last Scraped | 2026-08-20 |
 
 ## Current Job Listings (3)
 
-_Generated: 2026-08-19T06:52:27.729Z_
+_Generated: 2026-08-20T06:54:17.758Z_
 
 ### Full Stack Developer
 
