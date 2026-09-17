@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. GHERLA, STR. HĂŞDAŢII, NR.12 |
 | Website | [https://wearetec.com](https://wearetec.com) |
 | Careers | [https://wearetec.com/careers/](https://wearetec.com/careers/) |
-| Last Scraped | 2026-09-15 |
+| Last Scraped | 2026-09-17 |
 
-## Current Job Listings (3)
+## Current Job Listings (5)
 
-_Generated: 2026-09-15T11:29:40.128Z_
+_Generated: 2026-09-17T11:21:37.740Z_
 
 ### Full Stack Developer
 
@@ -35,4 +35,18 @@ _Generated: 2026-09-15T11:29:40.128Z_
 - **URL:** [https://tecss.bamboohr.com/careers/76](https://tecss.bamboohr.com/careers/76)
 - **Work Mode:** on-site
 - **Location:** România
+- **Status:** scraped
+
+### Marketing Manager 
+
+- **URL:** [https://tecss.bamboohr.com/careers/78](https://tecss.bamboohr.com/careers/78)
+- **Work Mode:** hybrid
+- **Location:** Cluj-Napoca, România
+- **Status:** scraped
+
+### Technical Team Lead Fullstack Developer
+
+- **URL:** [https://tecss.bamboohr.com/careers/80](https://tecss.bamboohr.com/careers/80)
+- **Work Mode:** hybrid
+- **Location:** Cluj-Napoca, România
 - **Status:** scraped
