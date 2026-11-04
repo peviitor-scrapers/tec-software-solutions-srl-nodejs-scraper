@@ -10,18 +10,11 @@
 | Location | JUD. CLUJ, MUN. GHERLA, STR. HĂŞDAŢII, NR.12 |
 | Website | [https://wearetec.com](https://wearetec.com) |
 | Careers | [https://wearetec.com/careers/](https://wearetec.com/careers/) |
-| Last Scraped | 2026-11-03 |
+| Last Scraped | 2026-11-04 |
 
-## Current Job Listings (9)
+## Current Job Listings (8)
 
-_Generated: 2026-11-03T13:54:57.802Z_
-
-### Full Stack Developer
-
-- **URL:** [https://tecss.bamboohr.com/careers/72](https://tecss.bamboohr.com/careers/72)
-- **Work Mode:** hybrid
-- **Location:** Cluj-Napoca, România
-- **Status:** scraped
+_Generated: 2026-11-04T14:05:58.265Z_
 
 ### Business Development Representative - US REGION
 
