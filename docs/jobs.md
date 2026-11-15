@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. GHERLA, STR. HĂŞDAŢII, NR.12 |
 | Website | [https://wearetec.com](https://wearetec.com) |
 | Careers | [https://wearetec.com/careers/](https://wearetec.com/careers/) |
-| Last Scraped | 2026-11-14 |
+| Last Scraped | 2026-11-15 |
 
 ## Current Job Listings (8)
 
-_Generated: 2026-11-14T13:16:17.670Z_
+_Generated: 2026-11-15T13:44:25.124Z_
 
 ### Business Development Representative - US REGION
 
