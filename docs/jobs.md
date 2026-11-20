@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. GHERLA, STR. HĂŞDAŢII, NR.12 |
 | Website | [https://wearetec.com](https://wearetec.com) |
 | Careers | [https://wearetec.com/careers/](https://wearetec.com/careers/) |
-| Last Scraped | 2026-11-19 |
+| Last Scraped | 2026-11-20 |
 
-## Current Job Listings (8)
+## Current Job Listings (7)
 
-_Generated: 2026-11-19T15:31:06.311Z_
+_Generated: 2026-11-20T15:09:43.742Z_
 
 ### Business Development Representative - US REGION
 
@@ -35,13 +35,6 @@ _Generated: 2026-11-19T15:31:06.311Z_
 - **URL:** [https://tecss.bamboohr.com/careers/78](https://tecss.bamboohr.com/careers/78)
 - **Work Mode:** hybrid
 - **Location:** Cluj-Napoca, România
-- **Status:** scraped
-
-### Senior Marketing Specialist & Demand Generation Specialist SportsTech
-
-- **URL:** [https://tecss.bamboohr.com/careers/79](https://tecss.bamboohr.com/careers/79)
-- **Work Mode:** on-site
-- **Location:** România
 - **Status:** scraped
 
 ### Technical Team Lead Fullstack Developer
